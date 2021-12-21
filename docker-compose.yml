@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  express:
+    build: .
+    ports:
+      - 5000:5000
+    environment:
+      PG_PASS: postgres_password
+      PG_USER: postgres
+      PG_HOST: localhost
+      PG_DB: fdn
+      PG_PORT: 5432
+  db:
+    image: postgres:14.1-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: postgres_password
+      POSTGRES_HOST_AUTH_METHOD: trust
