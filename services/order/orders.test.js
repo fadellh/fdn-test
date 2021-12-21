@@ -1,3 +1,4 @@
+const { getHeader } = require('./orders');
 const getTable = require('./orders');
 
 
@@ -123,3 +124,13 @@ test('Have correct quantity if duplicate order', async () => {
     expect(out[0]["Barang 2"]).toBe(5);
     expect(out[0]["Barang 3"]).toBe(0);
 });
+
+test("Have correct table header", async () => {
+  let out = await getTable.getTable(orderListPivotDuplicate,"pivot")
+  let header = await getHeader(out)
+
+  expect(header[0]).toBe("id");
+  expect(header[1]).toBe("fullname");
+  expect(header[2]).toBe("email");
+
+})

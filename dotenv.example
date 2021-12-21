@@ -1,0 +1,6 @@
+PORT=5000
+PG_HOST=localhost
+PG_PASS=test
+PG_USER=test
+PG_DB=test
+PG_PORT=5432

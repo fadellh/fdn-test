@@ -1,18 +1,21 @@
 var express = require('express');
 var router = express.Router();
 var pg = require('../db/index');
-const { getTable } = require('../services/order/orders');
+const { getTable, getHeader } = require('../services/order/orders');
 
 /* GET order listing. */
 router.get('/', async function(req, res, next) {
   try {
     await pg.client.connect()
     const query = await pg.client.query('SELECT * from "order"')
-    console.log(query.rows)
+
     let out = await getTable(query.rows)
-    res.send({data:out}).status(200);
+    let header = await getHeader(out)
+    res.send({header:header,data:out}).status(200);
+    // res.status(200).render('orders',{title: "Orders",rows: out, header: header})
+
   } catch (error) {
-    console.log(error)
+    res.send({error: error}).status(500)
   }
 });
 
@@ -20,11 +23,14 @@ router.get('/pivot', async function(req, res, next) {
   try {
     await pg.client.connect()
     const query = await pg.client.query('SELECT * from "order"')
-    console.log(query.rows)
+
     let out = await getTable(query.rows,'pivot')
-    res.send({data:out}).status(200);
+    let header = await getHeader(out)
+
+    res.status(200).render('orders-pivot',{title: "Orders",rows: out, header: header})
+    // res.send({header:header,data:out}).status(200);
   } catch (error) {
-    console.log(error)
+    res.send({error: error}).status(500)
   }
 });
 

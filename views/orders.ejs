@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <% header.forEach(e => { %>
+        <th><%=e %></th>
+        <% }) %>
+      </tr>
+      <% rows.map(e => { %>
+      <tr>
+        <td><%=e.id %></td>
+        <td><%=e.fullname %></td>
+        <td><%=e.email %></td>
+        <td><%=e.item %></td>
+        <td><%=e.quantity %></td>
+        <td><%=e.total_price %></td>
+      </tr>
+      <% }) %>
+    </table>
+    <br />
+    <br />
+    <br />
+    <a href="pivot"><button>Pivot</button></a>
+  </body>
+</html>

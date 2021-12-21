@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <% header.forEach(e => { %>
+        <th><%=e %></th>
+        <% }) %>
+      </tr>
+      <% rows.map(e => { %>
+      <tr>
+        <td><%=e.id %></td>
+        <td><%=e.fullname %></td>
+        <td><%=e.email %></td>
+        <% for( let i = 3; i < header.length; i++ ) { %>
+        <td><%=e[header[i]] %></td>
+        <% } %>
+      </tr>
+      <% }) %>
+    </table>
+  </body>
+</html>

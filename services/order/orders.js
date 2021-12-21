@@ -15,11 +15,26 @@ const getTable = async (data,type = 'normal',) =>{
     }
 }
 
+const getHeader = async (data=[]) => {
+    if (data.length === 0){
+        throw new Error("We have no data for this transaction")
+    }
+
+    let output = []
+    for (const key in data[0]) {
+        output.push(key)
+    }
+
+    return output
+}
+
 const normalTableModel = (data) => {
     let output = []
+    let idx = 0
     data.forEach(e => {
-        // console.log(e)
+        idx++
         output.push({
+            id:`${idx}`,
             fullname: `${e.firstname} ${e.lastname}`,
             email:`${e.email}`,
             item:`${e.item}`,
@@ -35,6 +50,7 @@ const pivotTableModel = (data) => {
 
     try {
         let newProperty = {
+            id:'',
             fullname:'',
             email:''
         }
@@ -54,6 +70,7 @@ const pivotTableModel = (data) => {
             obj.email = e.email
             if(!(e.email in cache)){
                 cache[e.email] = idx
+                obj.id = idx+1
                 obj.fullname = e.firstname +" " + e.lastname
                 obj[e.item] = e.quantity
 
@@ -74,5 +91,6 @@ const pivotTableModel = (data) => {
 }
 
 module.exports = {
-    getTable : getTable
+    getTable : getTable,
+    getHeader: getHeader
 }
