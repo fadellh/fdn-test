@@ -11,8 +11,8 @@ router.get('/', async function(req, res, next) {
 
     let out = await getTable(query.rows)
     let header = await getHeader(out)
-    res.send({header:header,data:out}).status(200);
-    // res.status(200).render('orders',{title: "Orders",rows: out, header: header})
+    // res.send({header:header,data:out}).status(200);
+    res.status(200).render('orders',{title: "Orders",rows: out, header: header})
 
   } catch (error) {
     res.send({error: error}).status(500)

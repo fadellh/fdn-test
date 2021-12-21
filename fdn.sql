@@ -52,7 +52,9 @@ INSERT INTO public."order" ("ID", firstname, lastname, email, item, quantity, to
 INSERT INTO public."order" ("ID", firstname, lastname, email, item, quantity, total_price) VALUES (2, 'Chandra', 'Liaw', 'chan@gmail.com', 'Barang 10', 1, 18000);
 INSERT INTO public."order" ("ID", firstname, lastname, email, item, quantity, total_price) VALUES (3, 'Ricky', 'Tejo', 'ric@gmail.com', 'Barang 3', 3, 50000);
 INSERT INTO public."order" ("ID", firstname, lastname, email, item, quantity, total_price) VALUES (4, 'Tommy', 'Bejo', 'tommy@mail.com', 'Barang 2', 6, 90000);
-
+INSERT INTO public."order" ("ID", firstname, lastname, email, item, quantity, total_price) VALUES (5, 'Robeer', 'Bejo', 'rob@mail.com', 'Barang 7', 2, 90000);
+INSERT INTO public."order" ("ID", firstname, lastname, email, item, quantity, total_price) VALUES (6, 'Tristan', 'Bejo', 'tris@mail.com', 'Barang 8', 10, 90000);
+INSERT INTO public."order" ("ID", firstname, lastname, email, item, quantity, total_price) VALUES (7, 'Tommy', 'Bejo', 'tommy@mail.com', 'Barang 8', 10, 90000);
 
 --
 -- TOC entry 3315 (class 0 OID 0)
