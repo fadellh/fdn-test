@@ -1,9 +1,0 @@
-div
-  table
-    thead
-      tr: th Posts
-    tbody
-      each post, i in userPosts
-        tr
-          td 
-            a(href='/admin/post/' + post.fullname) #{post.email} - #{post.title}
